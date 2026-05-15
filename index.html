@@ -1,0 +1,2973 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Legal Resolution Service – Against Debt &amp; Harassment</title>
+  <meta name="description" content="Prime Legal Resolution Service helps individuals manage loan stress, stop harassment, and find safe legal solutions for debt resolution." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --gold: #D4A017;
+      --gold-light: #E8B93A;
+      --gold-btn: #C9921A;
+      --dark-bg: #0E0E0E;
+      --dark-card: #1A1A1A;
+      --text-white: #FFFFFF;
+      --text-muted: #CCCCCC;
+      --border-gold: rgba(212, 160, 23, 0.5);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-white);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 64px;
+      height: 72px;
+      background-color: #111111;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-white);
+    }
+
+    .logo-name span {
+      color: var(--gold);
+    }
+
+    .logo-tagline {
+      font-size: 11px;
+      color: #999;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-white);
+    }
+
+    .nav-links .active-link {
+      color: var(--text-white);
+    }
+
+    .nav-links .active-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-white);
+    }
+
+    .nav-phone svg {
+      color: var(--gold);
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #0E0E0E;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 72px);
+      overflow: hidden;
+      background-color: #0f0f0f;
+    }
+
+    /* Right half: photo */
+    .hero-image-side {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 55%;
+      height: 100%;
+    }
+
+    .hero-image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Gradient overlay from left → right covering image */
+    .hero-image-side::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        #0f0f0f 0%,
+        rgba(15,15,15,0.7) 30%,
+        rgba(15,15,15,0.2) 60%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    /* Left content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 64px 0 64px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #e0e0e0;
+      width: fit-content;
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-size: clamp(34px, 4.2vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+
+    .hero-headline .gold-text {
+      color: var(--gold);
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 20px 0 22px 0;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #b0b0b0;
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0E0E0E;
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 14px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,160,23,0.35);
+    }
+
+    .btn-primary .arrow {
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text-white);
+      font-size: 14.5px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    .play-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .play-icon svg {
+      width: 10px;
+      height: 10px;
+      margin-left: 2px;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      position: relative;
+      z-index: 5;
+      background: #1A1A1A;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+    }
+
+    /* Wrap hero + stats in a column */
+    .hero-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 72px);
+    }
+
+    .hero {
+      flex: 1;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 24px 52px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      flex: 0 0 auto;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(212,160,23,0.06);
+    }
+
+    .stat-icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gold);
+    }
+
+    .stat-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.3;
+    }
+
+    .stat-sub {
+      font-size: 13px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ── SECTION 2: LOAN RESOLUTION PROCESS ── */
+    .process-section {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      min-height: 420px;
+      background-color: #0D1117;
+      overflow: hidden;
+    }
+
+    /* Right: handshake image */
+    .process-img-side {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 52%;
+      height: 100%;
+    }
+
+    .process-img-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    /* Gradient overlay: dark left → transparent right */
+    .process-img-side::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        #0D1117 0%,
+        rgba(13,17,23,0.82) 20%,
+        rgba(13,17,23,0.45) 50%,
+        rgba(13,17,23,0.1) 80%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    /* Left: content */
+    .process-content {
+      position: relative;
+      z-index: 2;
+      width: 52%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 64px;
+    }
+
+    .process-badge {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e0e0e0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 26px;
+    }
+
+    .process-headline {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      margin-bottom: 0;
+    }
+
+    .process-headline .gold-line {
+      display: block;
+      color: var(--gold);
+    }
+
+    .process-divider {
+      width: 44px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 18px 0 20px 0;
+    }
+
+    .process-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #9aa0b8;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    /* Stats row */
+    .process-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .process-stat {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-right: 40px;
+    }
+
+    .process-stat + .process-stat {
+      padding-left: 40px;
+      padding-right: 0;
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .process-stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(212,160,23,0.08);
+    }
+
+    .process-stat-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    .process-stat-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-stat-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .process-stat-label {
+      font-size: 13px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 3px;
+    }
+
+    /* ── SECTION 3: HOW OUR SERVICE WORKS ── */
+    .works-section {
+      background-color: #0A0A0A;
+      padding: 100px 64px;
+    }
+
+    /* Top label */
+    .works-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .works-label-text {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .works-label-icon {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .works-label-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .works-label-shield {
+      width: 28px;
+      height: 28px;
+      background: rgba(212,160,23,0.15);
+      border: 1.5px solid var(--gold);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .works-label-shield svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    /* Headline */
+    .works-headline {
+      text-align: center;
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      margin-bottom: 14px;
+    }
+
+    .works-headline .gold-word {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .works-subtext {
+      text-align: center;
+      font-size: 15px;
+      color: #9aa0b8;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* 3×2 Grid */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 52px;
+    }
+
+    /* Each card */
+    .works-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .works-card:hover {
+      border-color: rgba(212,160,23,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Photo area */
+    .works-card-photo {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+    }
+
+    .works-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .works-card:hover .works-card-photo img {
+      transform: scale(1.04);
+    }
+
+    /* Step number badge */
+    .works-step-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold);
+      color: #0A0A0A;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+      z-index: 2;
+    }
+
+    /* Bottom gradient on photo */
+    .works-card-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, #141414, transparent);
+      z-index: 1;
+    }
+
+    /* Card body */
+    .works-card-body {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .works-card-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .works-card-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    .works-card-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text-white);
+      line-height: 1.3;
+    }
+
+    .works-card-desc {
+      font-size: 13.5px;
+      color: #888;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    /* CTA bar */
+    .works-cta-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px 36px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      background: #111111;
+      position: relative;
+    }
+
+    /* Decorative gold lines left & right of phone icon */
+    .cta-deco-left, .cta-deco-right {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,160,23,0.5));
+    }
+
+    .cta-deco-right {
+      background: linear-gradient(to left, transparent, rgba(212,160,23,0.5));
+    }
+
+    .cta-phone-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      background: rgba(212,160,23,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cta-phone-circle svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    .cta-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 2;
+    }
+
+    .cta-bar-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.2;
+    }
+
+    .cta-bar-sub {
+      font-size: 13.5px;
+      color: #888;
+      font-weight: 400;
+    }
+
+    .cta-bar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 8px;
+      border: 1.5px solid var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cta-bar-btn:hover {
+      background: var(--gold);
+      color: #0A0A0A;
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTION 4: OUR SERVICES ── */
+    .services-section {
+      background-color: #090B18;
+      padding: 100px 64px;
+    }
+
+    /* Top badge */
+    .services-badge {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .services-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1.5px solid var(--gold);
+      border-radius: 50px;
+      padding: 7px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: transparent;
+    }
+
+    /* Headline */
+    .services-headline {
+      text-align: center;
+      font-size: clamp(30px, 3.8vw, 50px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      margin-bottom: 16px;
+      line-height: 1.12;
+    }
+
+    .services-subtext {
+      text-align: center;
+      font-size: 15px;
+      color: #9aa0b8;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 52px;
+    }
+
+    /* Cards grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 52px;
+    }
+
+    /* Single card */
+    .svc-card {
+      background: #111525;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform 0.25s, border-color 0.25s;
+      position: relative;
+    }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,160,23,0.3);
+    }
+
+    .svc-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Card photo */
+    .svc-card-photo {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .svc-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .svc-card:hover .svc-card-photo img {
+      transform: scale(1.05);
+    }
+
+    /* Card body */
+    .svc-card-body {
+      padding: 24px 26px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    /* Icon + title row */
+    .svc-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .svc-icon-box {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      background: rgba(212,160,23,0.12);
+      border: 1.5px solid rgba(212,160,23,0.45);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .svc-icon-box svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    .svc-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-white);
+      line-height: 1.3;
+      padding-top: 2px;
+    }
+
+    /* Description */
+    .svc-card-desc {
+      font-size: 13.5px;
+      color: #7a8098;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Bullet list */
+    .svc-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .svc-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #ccc;
+      font-weight: 400;
+    }
+
+    .svc-bullets li svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* Learn More link */
+    .svc-learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 4px;
+      transition: gap 0.2s;
+    }
+
+    .svc-learn-more:hover {
+      gap: 14px;
+    }
+
+    /* Gold bottom border per card */
+    .svc-card-border {
+      height: 2px;
+      background: linear-gradient(to right, transparent 0%, var(--gold) 40%, var(--gold) 60%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    /* Apply Now CTA */
+    .services-apply-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .services-apply-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: #090B18;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 64px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .services-apply-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(212,160,23,0.4);
+    }
+
+    /* ── SECTION 5: ABOUT US ── */
+    .about-section {
+      background-color: #0A0A0A;
+      padding: 100px 64px;
+      display: grid;
+      grid-template-columns: 50% 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 2;
+    }
+
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(212,160,23,0.4);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(212,160,23,0.05);
+      box-shadow: 0 0 15px rgba(212,160,23,0.1);
+      width: fit-content;
+    }
+
+    .about-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold);
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .about-headline {
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      margin: 0;
+    }
+
+    .about-headline .gold-name {
+      color: var(--gold);
+      display: block;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .about-body p {
+      font-size: 15px;
+      color: #9aa0b8;
+      line-height: 1.7;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .about-stats {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 32px;
+    }
+
+    .about-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .about-stat:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-stat:last-child {
+      border-right: none;
+    }
+
+    .about-stat-icon {
+      margin-bottom: 12px;
+    }
+
+    .about-stat-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke: var(--gold);
+      fill: none;
+      filter: drop-shadow(0 0 6px rgba(212,160,23,0.4));
+    }
+
+    .about-stat-number {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-stat-label {
+      font-size: 14px;
+      color: #9aa0b8;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .about-right {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 600px;
+    }
+
+    .about-right img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .about-right:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Dark overlay over portrait */
+    .about-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        #0A0A0A 0%,
+        rgba(10,10,10,0.6) 15%,
+        rgba(10,10,10,0.1) 40%,
+        transparent 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── SECTION 6: MEDIA PRESENCE (EXACT MATCH) ── */
+    .media-section {
+      background: #070a14;
+      padding: 100px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .media-left {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .media-trusted-badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      width: fit-content;
+    }
+
+    .media-headline {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.12;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .media-desc {
+      font-size: 15px;
+      color: #9aa0b8;
+      line-height: 1.7;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .media-press-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      width: fit-content;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .media-press-btn:hover {
+      background: rgba(212, 160, 23, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .media-press-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+    }
+
+    .media-right-wrap {
+      position: relative;
+      width: 600px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Map of India Background Pattern */
+    .media-india-map {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 450px;
+      height: 500px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+      background-size: 10px 10px;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M40,0 L60,0 L70,20 L80,20 L90,40 L95,60 L90,80 L80,90 L70,110 L60,120 L50,115 L40,110 L30,90 L20,80 L10,60 L5,40 L15,20 L30,10 Z' /%3E%3C/svg%3E");
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M40,0 L60,0 L70,20 L80,20 L90,40 L95,60 L90,80 L80,90 L70,110 L60,120 L50,115 L40,110 L30,90 L20,80 L10,60 L5,40 L15,20 L30,10 Z' /%3E%3C/svg%3E");
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      opacity: 0.4;
+      z-index: 1;
+      filter: blur(0.5px);
+    }
+
+    /* Orbital Rings */
+    .media-orbits {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+    }
+
+    .orbit-1 {
+      width: 650px;
+      height: 280px;
+      transform: translate(-50%, -50%) rotate(-15deg);
+    }
+
+    .orbit-2 {
+      width: 500px;
+      height: 220px;
+      transform: translate(-50%, -50%) rotate(25deg);
+    }
+
+    .orbit-3 {
+      width: 580px;
+      height: 250px;
+      transform: translate(-50%, -50%) rotate(5deg);
+      border-color: rgba(212, 160, 23, 0.15);
+    }
+
+    /* Glowing Dots on Orbits */
+    .orbit-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #FADB5F;
+      border-radius: 50%;
+      box-shadow: 0 0 12px 3px rgba(212, 160, 23, 0.8), 0 0 4px 1px #FFF;
+      z-index: 3;
+    }
+
+    .dot-1 { top: 12%; right: 28%; }
+    .dot-2 { bottom: 25%; left: 8%; }
+    .dot-3 { top: 38%; right: -2%; }
+
+    /* Soft Glow behind cards */
+    .media-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, transparent 70%);
+      z-index: 3;
+    }
+
+    /* 2x2 Cards Grid */
+    .media-cards-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .media-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      width: 220px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .media-card-sub {
+      font-size: 11px;
+      color: #333;
+      text-align: center;
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    /* Logo Specific Styling */
+    
+    /* India Today */
+    .logo-india-today {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 0.95;
+      margin-top: 10px;
+    }
+    .logo-india-today span {
+      color: #D32F2F;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    /* Moneycontrol */
+    .logo-moneycontrol {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .mc-money {
+      background: #4CAF50;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 4px 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .mc-control {
+      background: #0056B3;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 4px 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ABP Live */
+    .logo-abp {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .abp-triangle {
+      width: 0;
+      height: 0;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 32px solid #D32F2F;
+    }
+    .abp-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+    }
+    .abp-top {
+      font-size: 20px;
+      font-weight: 900;
+      color: #D32F2F;
+      letter-spacing: -0.02em;
+    }
+    .abp-live {
+      background: #D32F2F;
+      color: #FFF;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-top: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    /* The Tribune */
+    .logo-tribune {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #111;
+      margin-top: 16px;
+      letter-spacing: -0.03em;
+    }
+
+
+    /* ── STATS BAR (after media) ── */
+    .media-stats-bar {
+      background: #111420; border: 1px solid rgba(255,255,255,0.07);
+      margin: 0 64px 0; border-radius: 14px;
+      display: flex; align-items: center; justify-content: space-around;
+      padding: 32px 48px; gap: 0;
+    }
+    .media-stat-item {
+      display: flex; align-items: center; gap: 18px;
+      flex: 1; justify-content: center;
+    }
+    .media-stat-item + .media-stat-item {
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .media-stat-icon-wrap svg { width: 34px; height: 34px; stroke: var(--gold); fill: none; }
+    .media-stat-value { font-size: 32px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .media-stat-lbl { font-size: 13px; color: #7a8098; margin-top: 4px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { background: #080A14; padding: 100px 64px; }
+    .testi-top-badge {
+      display: flex; justify-content: center; margin-bottom: 20px;
+    }
+    .testi-badge-pill {
+      border: 1.5px solid var(--gold); border-radius: 50px;
+      padding: 6px 20px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+    }
+    .testi-headline {
+      text-align: center; font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .testi-subtext { text-align: center; font-size: 15px; color: #9aa0b8; line-height: 1.7; margin-bottom: 44px; }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+      position: relative;
+    }
+    .testi-card {
+      background: #111420; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; padding: 26px 24px 22px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: border-color .25s, transform .25s;
+    }
+    .testi-card:hover { border-color: rgba(212,160,23,0.35); transform: translateY(-4px); }
+    .testi-stars { display: flex; align-items: center; gap: 6px; }
+    .testi-stars span { color: var(--gold); font-size: 15px; }
+    .testi-score { font-size: 14px; font-weight: 700; color: #fff; }
+    .testi-quote { font-size: 14px; color: #9aa0b8; line-height: 1.75; flex: 1; font-weight: 400; }
+    .testi-footer { display: flex; align-items: center; justify-content: space-between; }
+    .testi-person { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      overflow: hidden; border: 2px solid rgba(212,160,23,0.3);
+      flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name { font-size: 13.5px; font-weight: 700; color: #fff; }
+    .testi-location { font-size: 12px; color: #7a8098; margin-top: 2px; }
+    .testi-quote-mark { font-size: 40px; color: var(--gold); line-height: 1; opacity: 0.7; font-family: Georgia, serif; }
+
+    /* ── PRESS KIT CTA BAR ── */
+    .presskit-bar {
+      background: #111420; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; margin: 32px 64px 0;
+      display: flex; align-items: center; gap: 24px; padding: 28px 36px;
+    }
+    .presskit-icon-wrap {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1.5px solid var(--gold); background: rgba(212,160,23,0.1);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .presskit-icon-wrap svg { width: 24px; height: 24px; stroke: var(--gold); fill: none; }
+    .presskit-text { flex: 1; }
+    .presskit-title { font-size: 18px; font-weight: 800; color: #fff; }
+    .presskit-sub { font-size: 13.5px; color: #7a8098; margin-top: 4px; }
+    .presskit-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: #080A14; font-size: 14px; font-weight: 800;
+      padding: 13px 28px; border-radius: 8px; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .presskit-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.35); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #060810; padding: 64px 64px 0; margin-top: 72px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr;
+      gap: 40px; padding-bottom: 52px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-icon {
+      width: 38px; height: 38px; border: 1.5px solid var(--gold);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      background: rgba(212,160,23,0.08);
+    }
+    .footer-logo-icon svg { width: 20px; height: 20px; }
+    .footer-logo-text { font-size: 16px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .footer-logo-text span { color: var(--gold); }
+    .footer-logo-india { font-size: 11px; color: #7a8098; }
+    .footer-tagline { font-size: 13px; color: #7a8098; line-height: 1.65; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: border-color .2s, background .2s;
+    }
+    .footer-social-btn:hover { border-color: var(--gold); background: rgba(212,160,23,0.08); }
+    .footer-social-btn svg { width: 15px; height: 15px; stroke: #aaa; fill: none; }
+    .footer-col h4 {
+      font-size: 14px; font-weight: 700; color: #fff;
+      margin-bottom: 18px; letter-spacing: 0.02em;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col ul li a {
+      font-size: 13.5px; color: #7a8098; text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    /* Newsletter */
+    .footer-newsletter { display: flex; flex-direction: column; gap: 14px; }
+    .footer-newsletter h4 { font-size: 14px; font-weight: 700; color: #fff; margin: 0; }
+    .footer-newsletter p { font-size: 13px; color: #7a8098; line-height: 1.6; margin: 0; }
+    .newsletter-form {
+      display: flex; align-items: center; gap: 0;
+      background: #13162A; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden; margin-top: 4px;
+    }
+    .newsletter-input {
+      flex: 1; background: transparent; border: none; outline: none;
+      padding: 12px 16px; font-size: 13.5px; color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+    .newsletter-input::placeholder { color: #555; }
+    .newsletter-btn {
+      width: 44px; height: 44px; background: var(--gold);
+      border: none; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; border-radius: 0 8px 8px 0;
+      transition: background .2s;
+    }
+    .newsletter-btn:hover { background: var(--gold-light); }
+    .newsletter-btn svg { width: 16px; height: 16px; stroke: #080A14; fill: none; }
+    /* Footer bottom bar */
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; font-size: 12.5px; color: #555;
+    }
+    .footer-bottom .heart { color: #e63946; }
+    /* ── MOBILE/TABLET: hidden by default ── */
+    .mobile-bottom-nav { display: none; }
+    .mob-header        { display: none; }
+    .mob-expert-bar    { display: none; }
+
+    /* ── TABLET ≤ 991px ── */
+    @media (max-width: 991px) {
+      .navbar { padding: 0 28px; }
+      .hero-image-side { width: 48%; }
+      .hero-content { width: 52%; padding: 60px 40px; }
+      .process-img-side { width: 40%; }
+      .process-content { width: 60%; padding: 80px 40px; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-right { min-height: 400px; order: -1; margin-bottom: 32px; }
+      .works-grid, .services-grid, .testi-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    }
+
+    /* ── MOBILE APP ≤ 768px ── */
+    @media (max-width: 768px) {
+      .navbar { display: none !important; }
+
+      body {
+        padding-top: 64px;
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        overflow-x: hidden;
+        background: #0a0a0a;
+      }
+
+      /* ── APP HEADER ── */
+      .mob-header {
+        display: flex; position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+        height: 64px; padding: 0 16px;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(212,160,23,0.12);
+        align-items: center; justify-content: space-between;
+      }
+      .mob-header-left { display: flex; align-items: center; gap: 10px; }
+      .mob-header-right { display: flex; align-items: center; gap: 8px; }
+      .mob-logo-box {
+        width: 38px; height: 38px; border-radius: 10px;
+        background: linear-gradient(135deg,#1e1800,#2a2200);
+        border: 1px solid rgba(212,160,23,0.35);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .mob-logo-box svg { width: 20px; height: 20px; }
+      .mob-logo-info { display: flex; flex-direction: column; gap: 1px; }
+      .mob-logo-name { font-size: 13px; font-weight: 800; color: #fff; line-height: 1.2; }
+      .mob-logo-name em { color: #D4A017; font-style: normal; }
+      .mob-logo-sub { font-size: 9px; color: #555; }
+      .mob-icon-btn {
+        width: 36px; height: 36px; border-radius: 50%;
+        background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+        display: flex; align-items: center; justify-content: center;
+        text-decoration: none; cursor: pointer;
+      }
+      .mob-icon-btn svg { width: 17px; height: 17px; stroke: #999; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+      /* ── SECTIONS ── */
+      .process-section, .works-section, .services-section,
+      .about-section, .media-section, .testimonials-section {
+        padding: 44px 20px 36px; overflow: hidden;
+      }
+
+      /* ── HERO ── */
+      .hero-wrapper { min-height: auto; }
+      .hero { position: relative; display: block; min-height: 88vw; overflow: hidden; }
+      .hero-image-side { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .hero-image-side img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+      .hero-image-side::before {
+        content: ''; position: absolute; inset: 0; z-index: 1;
+        background: linear-gradient(to bottom, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.55) 55%, #0a0a0a 100%),
+                    linear-gradient(to right, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.1) 65%);
+      }
+      .hero-content {
+        position: relative; z-index: 2; padding: 24px 20px 36px;
+        display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+        min-height: 88vw; justify-content: flex-end;
+      }
+      .badge { margin-bottom: 12px; font-size: 10.5px; padding: 5px 12px; background: rgba(212,160,23,0.1); border-color: rgba(212,160,23,0.3); color: #D4A017; }
+      .hero-headline { font-size: clamp(26px,7.5vw,34px); line-height: 1.15; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.02em; }
+      .hero-divider { width: 36px; height: 3px; margin: 8px 0 14px; }
+      .hero-desc { font-size: 13px; line-height: 1.65; margin-bottom: 22px; color: rgba(255,255,255,0.65); max-width: 88%; }
+      .hero-buttons { flex-direction: column; gap: 10px; width: 100%; max-width: 290px; }
+      .btn-primary { width: 100%; justify-content: center; padding: 15px 20px; font-size: 14px; font-weight: 700; border-radius: 12px; }
+      .btn-secondary { width: 100%; justify-content: center; padding: 13px 20px; font-size: 13.5px; border-radius: 12px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); }
+
+      /* ── TRUST STRIP ── */
+      .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); background: #111; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 8px; gap: 8px; border-right: 1px solid rgba(255,255,255,0.06); }
+      .stat-item:last-child { border-right: none; }
+      .stat-icon-wrap { width: 40px; height: 40px; border-radius: 50%; background: rgba(212,160,23,0.08); border: 1px solid rgba(212,160,23,0.22); display: flex; align-items: center; justify-content: center; }
+      .stat-icon-wrap svg { width: 18px; height: 18px; stroke: #D4A017; }
+      .stat-text { display: flex; flex-direction: column; align-items: center; }
+      .stat-title { font-size: 11.5px; font-weight: 700; color: #fff; line-height: 1.3; }
+      .stat-sub { font-size: 9.5px; color: #666; margin-top: 1px; }
+
+      /* ── PROCESS ── */
+      .process-section { flex-direction: column; background: #0d0d0d; }
+      .process-img-side { position: relative; width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-bottom: 28px; }
+      .process-img-side::before { display: none; }
+      .process-content { width: 100%; padding: 0; align-items: flex-start; text-align: left; }
+      .process-badge { font-size: 10px; padding: 5px 14px; margin-bottom: 14px; }
+      .process-headline { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+
+      /* ── SERVICES ── */
+      .services-headline { text-align: left; font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+      .services-subtext { text-align: left; font-size: 13px; margin-bottom: 20px; }
+      .services-grid { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; gap: 14px !important; padding: 4px 0 20px !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .services-grid::-webkit-scrollbar { display: none; }
+      .svc-card { flex: 0 0 70vw !important; border-radius: 16px; padding: 20px 16px; }
+      .svc-card-photo { display: none; }
+      .svc-card-body { padding: 0; }
+      .svc-icon-wrap { width: 42px; height: 42px; margin-bottom: 14px; }
+      .svc-card-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+      .svc-card-desc { font-size: 12px; line-height: 1.6; }
+      .svc-learn-more { font-size: 12px; margin-top: 14px; }
+
+      /* ── WORKS ── */
+      .works-label { justify-content: flex-start; margin-bottom: 10px; }
+      .works-headline { font-size: 24px; font-weight: 800; }
+      .works-grid { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; gap: 14px !important; padding: 4px 0 20px !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .works-grid::-webkit-scrollbar { display: none; }
+      .works-card { flex: 0 0 82vw !important; border-radius: 16px; }
+
+      /* ── EXPERT CALL BAR ── */
+      .mob-expert-bar { display: flex; align-items: center; background: linear-gradient(135deg,#1a1400,#0f0b00); border: 1px solid rgba(212,160,23,0.2); border-radius: 16px; padding: 16px 14px; margin: 0 0 36px; gap: 12px; }
+      .mob-expert-icon { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: rgba(212,160,23,0.1); border: 1px solid rgba(212,160,23,0.3); display: flex; align-items: center; justify-content: center; }
+      .mob-expert-icon svg { width: 20px; height: 20px; stroke: #D4A017; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .mob-expert-text { flex: 1; min-width: 0; }
+      .mob-expert-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+      .mob-expert-sub { font-size: 11px; color: #888; }
+      .mob-expert-sub span { color: #D4A017; }
+      .mob-call-now { background: #D4A017; color: #000; font-size: 12px; font-weight: 800; padding: 11px 14px; border-radius: 10px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+
+      /* ── TESTIMONIALS ── */
+      .testi-headline { font-size: 24px; font-weight: 800; text-align: left; }
+      .testi-subtext { text-align: left; font-size: 13px; }
+      .testi-grid { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; gap: 14px !important; padding: 4px 0 20px !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .testi-grid::-webkit-scrollbar { display: none; }
+      .testi-card { flex: 0 0 84vw !important; border-radius: 16px; padding: 22px 18px; }
+
+      /* ── ABOUT ── */
+      .about-section { display: flex; flex-direction: column; }
+      .about-headline { font-size: 24px; font-weight: 800; }
+      .about-right { order: -1; min-height: 260px; border-radius: 16px; margin-bottom: 24px; }
+      .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+      .about-stat { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 14px; }
+
+      /* ── MEDIA ── */
+      .media-section { flex-direction: column; align-items: flex-start; }
+      .media-headline { font-size: 24px; font-weight: 800; }
+      .media-left { max-width: 100%; margin-bottom: 28px; }
+      .media-right { width: 100%; }
+      .media-stats-bar { flex-direction: row; flex-wrap: wrap; gap: 0; border-left: none; padding-left: 0; }
+      .media-stat { flex: 0 0 50%; padding: 18px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+      /* ── CTA BARS ── */
+      .cta-bar { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
+      .cta-bar-btn { width: 100%; justify-content: center; padding: 15px; border-radius: 12px; }
+      .presskit-bar { flex-direction: column; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
+
+      /* ── FOOTER ── */
+      .site-footer { padding: 40px 20px 20px; margin-top: 0; }
+      .footer-top { display: flex; flex-direction: column; gap: 28px; }
+
+      /* ── BOTTOM TAB BAR ── */
+      .mobile-bottom-nav {
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+        height: calc(60px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255,255,255,0.08);
+        z-index: 9998; align-items: center; justify-content: space-around;
+        box-shadow: 0 -8px 32px rgba(0,0,0,0.6);
+      }
+      .mob-tab {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 4px; flex: 1; height: 60px;
+        text-decoration: none; color: #4a4a5a;
+        font-size: 10px; font-weight: 600; letter-spacing: 0.02em;
+        transition: color 0.18s; -webkit-tap-highlight-color: transparent;
+      }
+      .mob-tab svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .mob-tab.active { color: #D4A017; }
+      .mob-tab.active svg { stroke: #D4A017; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <!-- Shield + scale icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z" stroke="#D4A017" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="11" r="1.5" fill="#D4A017"/>
+          <line x1="8" y1="11" x2="16" y2="11" stroke="#D4A017" stroke-width="1.2"/>
+          <line x1="12" y1="8" x2="12" y2="14" stroke="#D4A017" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Prime Legal <span>Resolution</span></span>
+        <span class="logo-tagline">Prime Legal Resolution Service</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#hero-section" class="active-link">Home</a></li>
+      <li><a href="#process-section">Process</a></li>
+      <li><a href="#services-section">Services</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#testimonials-section">Reviews</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="nav-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        +91 8920 123 456
+      </div>
+      <a href="#" class="btn-cta" id="nav-cta-btn">
+        Get Free Expert Consultation &nbsp;→
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO WRAPPER -->
+  <div class="hero-wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero-section">
+
+      <!-- Right: image -->
+      <div class="hero-image-side">
+        <img
+          src="hero.png"
+          alt="Legal consultation with a couple"
+        />
+      </div>
+
+      <!-- Left: content -->
+      <div class="hero-content">
+        <div class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+          </svg>
+          India's Trusted Debt Resolution Partner
+        </div>
+
+        <h1 class="hero-headline">
+          <span style="font-weight: 400;">Your Protection</span><br />
+          <span style="white-space: nowrap;">
+            <span style="font-weight: 400;">Against</span> <span class="gold-text" style="font-style:normal;font-weight:700">Debt &amp; Harassment</span>
+          </span>
+        </h1>
+
+        <div class="hero-divider"></div>
+
+        <p class="hero-desc">
+          Prime Legal Resolution Service helps individuals manage loan stress,<br />
+          stop harassment, and find safe legal solutions for debt resolution.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary" id="hero-cta-btn">
+            Get Free Expert Consultation
+            <span class="arrow">→</span>
+          </a>
+          <a href="#" class="btn-secondary" id="hero-how-it-works-btn">
+            <span class="play-icon">
+              <svg viewBox="0 0 10 12" fill="white">
+                <path d="M0 0L10 6L0 12V0Z"/>
+              </svg>
+            </span>
+            How It Works
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar" id="stats-bar">
+
+      <div class="stat-item">
+        <div class="stat-icon-wrap">
+          <!-- Shield check -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="9,12 11,14 15,10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stat-text">
+          <span class="stat-title">RBI Compliant</span>
+          <span class="stat-sub">100% legal &amp; secure</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon-wrap">
+          <!-- People / group -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="8" r="3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 20c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="17" cy="8" r="2.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 20c0-2.76-1.79-5-4-5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stat-text">
+          <span class="stat-title">10,000+</span>
+          <span class="stat-sub">Cases Resolved</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon-wrap">
+          <!-- Expert / person with tie -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="7" r="4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 21v-1a6 6 0 0 1 12 0v1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="12" y1="11" x2="12" y2="17" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="10" y1="13" x2="14" y2="13" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="stat-text">
+          <span class="stat-title">Expert Legal Team</span>
+          <span class="stat-sub">Across India</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: LOAN RESOLUTION PROCESS -->
+  <section class="process-section" id="process-section">
+
+    <!-- Right: handshake image -->
+    <div class="process-img-side">
+      <img src="handshake.png" alt="Professional business handshake" />
+    </div>
+
+    <!-- Left: content -->
+    <div class="process-content">
+
+      <!-- Badge -->
+      <span class="process-badge">Debt Resolution</span>
+
+      <!-- Headline -->
+      <h2 class="process-headline">
+        <span style="font-weight:400">Loan Resolution</span>
+        <span class="gold-line" style="font-style:normal;font-weight:700">Process</span>
+      </h2>
+
+      <!-- Gold divider -->
+      <div class="process-divider"></div>
+
+      <!-- Description -->
+      <p class="process-desc">
+        A structured 6-step journey to help you<br />
+        become debt-free and regain financial freedom.
+      </p>
+
+      <!-- Stats -->
+      <div class="process-stats">
+
+        <!-- Stat 1: Success Rate -->
+        <div class="process-stat">
+          <div class="process-stat-icon">
+            <!-- Trophy icon -->
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 21h8M12 17v4M7 4H4a2 2 0 000 4c0 2 1.5 3.5 3 4"/>
+              <path d="M17 4h3a2 2 0 010 4c0 2-1.5 3.5-3 4"/>
+              <path d="M7 4h10v8a5 5 0 01-10 0V4z"/>
+            </svg>
+          </div>
+          <div class="process-stat-text">
+            <span class="process-stat-number">98%</span>
+            <span class="process-stat-label">Success Rate</span>
+          </div>
+        </div>
+
+        <!-- Stat 2: Cases Resolved -->
+        <div class="process-stat">
+          <div class="process-stat-icon">
+            <!-- Group people icon -->
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="8" r="3"/>
+              <path d="M3 20c0-3.31 2.69-6 6-6s6 2.69 6 6"/>
+              <circle cx="17" cy="8" r="2.5"/>
+              <path d="M21 20c0-2.76-1.79-5-4-5"/>
+            </svg>
+          </div>
+          <div class="process-stat-text">
+            <span class="process-stat-number">5000+</span>
+            <span class="process-stat-label">Cases Resolved</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HOW OUR SERVICE WORKS -->
+  <section class="works-section" id="works-section">
+
+    <!-- Top label -->
+    <div class="works-label">
+      <span class="works-label-text">Our Process</span>
+      <div class="works-label-icon">
+        <div class="works-label-line"></div>
+        <div class="works-label-shield">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+          </svg>
+        </div>
+        <div class="works-label-line" style="background:linear-gradient(to left,transparent,rgba(212,160,23,0.6))"></div>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="works-headline">
+      <span style="font-weight:400">How Our</span> <span class="gold-word" style="font-style:normal;font-weight:700">Anti-Harassment</span><br />
+      <span style="font-weight:400">Service Works</span>
+    </h2>
+    <p class="works-subtext">A comprehensive 6-step protection system designed to shield you from harassment</p>
+
+    <!-- 6-step grid -->
+    <div class="works-grid">
+
+      <!-- Card 01 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step1.png" alt="Register with Us" />
+          <span class="works-step-badge">01</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M6 20v-1a6 6 0 0 1 12 0v1"/>
+              <polyline points="16,10 17.5,11.5 20,9" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Register with Us</div>
+          <div class="works-card-desc">Sign up to start your protection journey with our secure onboarding process</div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step2.png" alt="Dedicated Call Support" />
+          <span class="works-step-badge">02</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/>
+              <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Dedicated Call Support</div>
+          <div class="works-card-desc">Receive a secure system for managing and monitoring all recovery calls</div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step3.png" alt="Call Redirection Setup" />
+          <span class="works-step-badge">03</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 3 21 3 21 8"/>
+              <line x1="4" y1="20" x2="21" y2="3"/>
+              <path d="M21 16.5v4.5h-4.5"/>
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Call Redirection Setup</div>
+          <div class="works-card-desc">Forward unwanted harassment calls directly to our expert team</div>
+        </div>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step4.png" alt="Expert Intervention" />
+          <span class="works-step-badge">04</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+              <circle cx="12" cy="11" r="2.5"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Expert Intervention</div>
+          <div class="works-card-desc">Our experienced team handles all harassment professionally and legally</div>
+        </div>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step5.png" alt="Legal Communication" />
+          <span class="works-step-badge">05</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+              <line x1="8" y1="8" x2="8" y2="16"/>
+              <line x1="16" y1="8" x2="16" y2="16"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Legal Communication</div>
+          <div class="works-card-desc">We coordinate directly with lenders on your behalf within legal framework</div>
+        </div>
+      </div>
+
+      <!-- Card 06 -->
+      <div class="works-card">
+        <div class="works-card-photo">
+          <img src="step6.png" alt="Parallel Resolution" />
+          <span class="works-step-badge">06</span>
+        </div>
+        <div class="works-card-body">
+          <div class="works-card-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 14.5L4 20"/>
+              <path d="M7 9l-3 3 3 3"/>
+              <path d="M17 15l3-3-3-3"/>
+              <path d="M14.5 9.5L20 4"/>
+              <path d="M10 14c-.5-.5-1.5-2.5 0-4s3.5-.5 4 0"/>
+              <path d="M21 3l-5 5"/>
+              <path d="M3 21l5-5"/>
+            </svg>
+          </div>
+          <div class="works-card-title">Parallel Resolution</div>
+          <div class="works-card-desc">We work alongside you to resolve your case comprehensively</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Bar -->
+    <div class="works-cta-bar">
+      <div class="cta-deco-left"></div>
+      <div class="cta-phone-circle">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+      </div>
+      <div class="cta-deco-right"></div>
+      <div class="cta-text-group">
+        <span class="cta-bar-title">Need Immediate Protection?</span>
+        <span class="cta-bar-sub">Speak with our experts today and stop harassment legally.</span>
+      </div>
+      <a href="#" class="cta-bar-btn" id="works-callback-btn">
+        Request a Callback &nbsp;→
+      </a>
+    </div>
+
+  </section>
+
+  <!-- SECTION 4: OUR SERVICES -->
+  <section class="services-section" id="services-section">
+
+    <!-- Badge -->
+    <div class="services-badge">
+      <span class="services-badge-pill">What We Offer</span>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="services-headline"><span style="font-weight:400">Our</span> <strong style="font-style:normal;font-weight:700;color:var(--gold)">Services</strong></h2>
+    <p class="services-subtext">
+      Comprehensive legal solutions tailored to protect your rights<br />
+      and financial well-being
+    </p>
+
+    <!-- 3 Service Cards -->
+    <div class="services-grid">
+
+      <!-- Card 1: Loan Repayment Support -->
+      <div class="svc-card">
+        <div class="svc-card-photo">
+          <img src="svc1.png" alt="Loan Repayment Support" />
+        </div>
+        <div class="svc-card-border"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-header">
+            <div class="svc-icon-box">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="8" y1="13" x2="16" y2="13"/>
+                <line x1="8" y1="17" x2="16" y2="17"/>
+                <line x1="8" y1="9" x2="10" y2="9"/>
+              </svg>
+            </div>
+            <span class="svc-card-title">Loan Repayment<br/>Support</span>
+          </div>
+          <p class="svc-card-desc">We help you explore safe and legal ways to manage loan repayment issues with structured guidance.</p>
+          <ul class="svc-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Legal Consultation
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Payment Plans
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Lender Coordination
+            </li>
+          </ul>
+          <a href="#" class="svc-learn-more" id="svc1-learn-more">
+            Learn More &nbsp;&#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Credit Card Debt Assistance -->
+      <div class="svc-card">
+        <div class="svc-card-photo">
+          <img src="svc2.png" alt="Credit Card Debt Assistance" />
+        </div>
+        <div class="svc-card-border"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-header">
+            <div class="svc-icon-box">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <span class="svc-card-title">Credit Card Debt<br/>Assistance</span>
+          </div>
+          <p class="svc-card-desc">Get expert guidance if you are unable to manage credit card dues and outstanding balances.</p>
+          <ul class="svc-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Debt Analysis
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Settlement Options
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Credit Protection
+            </li>
+          </ul>
+          <a href="#" class="svc-learn-more" id="svc2-learn-more">
+            Learn More &nbsp;&#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Recovery Harassment Protection -->
+      <div class="svc-card">
+        <div class="svc-card-photo">
+          <img src="svc3.png" alt="Recovery Harassment Protection" />
+        </div>
+        <div class="svc-card-border"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-header">
+            <div class="svc-icon-box">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+              </svg>
+            </div>
+            <span class="svc-card-title">Recovery Harassment<br/>Protection</span>
+          </div>
+          <p class="svc-card-desc">We protect you from illegal recovery practices and support your legal rights against harassment.</p>
+          <ul class="svc-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              24/7 Support
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Legal Shield
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Call Management
+            </li>
+          </ul>
+          <a href="#" class="svc-learn-more" id="svc3-learn-more">
+            Learn More &nbsp;&#8594;
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Apply Now CTA -->
+    <div class="services-apply-wrap">
+      <a href="#" class="services-apply-btn" id="services-apply-btn">Apply Now</a>
+    </div>
+
+  </section>
+
+  <!-- MOBILE EXPERT CALL BAR (shown only on mobile, after services) -->
+  <div class="mob-expert-bar">
+    <div class="mob-expert-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </div>
+    <div class="mob-expert-text">
+      <div class="mob-expert-title">Talk to Our Legal Experts</div>
+      <div class="mob-expert-sub">We're here to help you &bull; <span>+91 8920 123 456</span></div>
+    </div>
+    <a href="tel:+918920123456" class="mob-call-now">Call Now</a>
+  </div>
+
+  <!-- SECTION 5: ABOUT US -->
+  <section class="about-section" id="about-section">
+    <div class="about-left">
+      <!-- Badge -->
+      <span class="about-badge">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+          <polyline points="9,11.5 11,13.5 15,9.5"/>
+        </svg>
+        ABOUT US
+      </span>
+
+      <!-- Headline -->
+      <h2 class="about-headline">
+        <span style="font-weight: 400;">About</span><br />
+        <span class="gold-name">LegalShield India</span>
+      </h2>
+
+      <!-- Body text -->
+      <div class="about-body">
+        <p>LegalShield India is your trusted partner in navigating life's financial and legal challenges. We provide expert legal support with a personal touch—so you can face every situation with confidence and peace of mind.</p>
+        <p>With a team of experienced legal professionals and a deep understanding of Indian laws, we offer practical, reliable, and timely solutions tailored to your unique needs. Whether it's protecting your rights, resolving disputes, or planning for the future, we're here to guide and support you every step of the way.</p>
+        <p>At LegalShield India, we don't just solve problems—<br>we help you protect what matters most.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-icon">
+            <!-- Calendar / Years icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <span class="about-stat-number">15+</span>
+          <span class="about-stat-label">Years Experience</span>
+        </div>
+
+        <div class="about-stat">
+          <div class="about-stat-icon">
+            <!-- Briefcase icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <rect x="9.5" y="10" width="5" height="4" rx="1"/>
+            </svg>
+          </div>
+          <span class="about-stat-number">50+</span>
+          <span class="about-stat-label">Legal Experts</span>
+        </div>
+
+        <div class="about-stat">
+          <div class="about-stat-icon">
+            <!-- People / Clients icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span class="about-stat-number">10K+</span>
+          <span class="about-stat-label">Clients Helped</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <img src="about_lawyer.png" alt="LegalShield India Expert" />
+    </div>
+  </section>
+
+  <!-- SECTION 6: MEDIA PRESENCE -->
+  <section class="media-section" id="media-section">
+    
+    <div class="media-left">
+      <div class="media-trusted-badge">Trusted. Recognized. Featured.</div>
+      <h2 class="media-headline">Media<br/>Presence</h2>
+      <p class="media-desc">Recognized and featured by leading media outlets across India</p>
+      
+      <a href="#" class="media-press-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        View Press Kit
+      </a>
+    </div>
+
+    <div class="media-right-wrap">
+      
+      <!-- India Map Pattern -->
+      <div class="media-india-map"></div>
+      
+      <!-- Soft Yellow Glow Behind Cards -->
+      <div class="media-glow"></div>
+
+      <!-- Orbital Rings with Dots -->
+      <div class="media-orbits">
+        <div class="orbit-ring orbit-1"></div>
+        <div class="orbit-ring orbit-2"></div>
+        <div class="orbit-ring orbit-3"></div>
+        
+        <div class="orbit-dot dot-1"></div>
+        <div class="orbit-dot dot-2"></div>
+        <div class="orbit-dot dot-3"></div>
+      </div>
+
+      <!-- 2x2 Logo Cards Grid -->
+      <div class="media-cards-grid">
+        
+        <!-- India Today -->
+        <div class="media-card">
+          <div class="logo-india-today">
+            <span>INDIA</span>
+            <span>TODAY</span>
+          </div>
+          <div class="media-card-sub">Loan harassment discussion</div>
+        </div>
+
+        <!-- Moneycontrol -->
+        <div class="media-card">
+          <div class="logo-moneycontrol">
+            <span class="mc-money">money</span>
+            <span class="mc-control">control</span>
+          </div>
+          <div class="media-card-sub">Borrower struggles</div>
+        </div>
+
+        <!-- ABP Live -->
+        <div class="media-card">
+          <div class="logo-abp">
+            <div class="abp-triangle"></div>
+            <div class="abp-text">
+              <span class="abp-top">abp</span>
+              <span class="abp-live">LIVE</span>
+            </div>
+          </div>
+          <div class="media-card-sub">Easy credit risks</div>
+        </div>
+
+        <!-- The Tribune -->
+        <div class="media-card">
+          <div class="logo-tribune">The Tribune</div>
+          <div class="media-card-sub">Debt resolution support</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="media-stats-bar" id="media-stats-bar">
+    <div class="media-stat-item">
+      <div class="media-stat-icon-wrap">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="media-stat-value">4.9/5</div>
+        <div class="media-stat-lbl">Average Rating</div>
+      </div>
+    </div>
+    <div class="media-stat-item">
+      <div class="media-stat-icon-wrap">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div>
+        <div class="media-stat-value">2500+</div>
+        <div class="media-stat-lbl">Happy Clients</div>
+      </div>
+    </div>
+    <div class="media-stat-item">
+      <div class="media-stat-icon-wrap">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 21h8M12 17v4M7 4H4a2 2 0 000 4c0 2 1.5 3.5 3 4"/>
+          <path d="M17 4h3a2 2 0 010 4c0 2-1.5 3.5-3 4"/>
+          <path d="M7 4h10v8a5 5 0 01-10 0V4z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="media-stat-value">98%</div>
+        <div class="media-stat-lbl">Success Rate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials-section">
+    <div class="testi-top-badge"><span class="testi-badge-pill">Success Stories</span></div>
+    <h2 class="testi-headline"><span style="font-weight:400">What Our</span> <strong style="font-style:normal;font-weight:700;color:var(--gold)">Clients Say</strong></h2>
+    <p class="testi-subtext">Real stories from real people who found their way to financial freedom</p>
+    <div class="testi-grid">
+      <!-- Card 1 -->
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span>★★★★★</span>
+          <span class="testi-score">4.9</span>
+        </div>
+        <p class="testi-quote">"I was overwhelmed with loans and constant harassment calls. Prime Legal Resolution Service helped me become completely stress-free."</p>
+        <div class="testi-footer">
+          <div class="testi-person">
+            <div class="testi-avatar"><img src="av_rajesh.png" alt="Rajesh Kumar"/></div>
+            <div>
+              <div class="testi-name">Rajesh Kumar</div>
+              <div class="testi-location">Mumbai, Maharashtra</div>
+            </div>
+          </div>
+          <div class="testi-quote-mark">"</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span>★★★★★</span>
+          <span class="testi-score">4.7</span>
+        </div>
+        <p class="testi-quote">"Recovery calls were affecting my life and mental health. The team at Prime Legal Resolution Service handled everything professionally."</p>
+        <div class="testi-footer">
+          <div class="testi-person">
+            <div class="testi-avatar"><img src="av_priya.png" alt="Priya Sharma"/></div>
+            <div>
+              <div class="testi-name">Priya Sharma</div>
+              <div class="testi-location">Delhi NCR</div>
+            </div>
+          </div>
+          <div class="testi-quote-mark">"</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span>★★★★★</span>
+          <span class="testi-score">4.6</span>
+        </div>
+        <p class="testi-quote">"They helped me find a structured way out of debt when I thought there was no hope. Highly supportive and transparent team."</p>
+        <div class="testi-footer">
+          <div class="testi-person">
+            <div class="testi-avatar"><img src="av_amit.png" alt="Amit Patel"/></div>
+            <div>
+              <div class="testi-name">Amit Patel</div>
+              <div class="testi-location">Bangalore, Karnataka</div>
+            </div>
+          </div>
+          <div class="testi-quote-mark">"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS KIT CTA BAR -->
+  <div class="presskit-bar" id="presskit-bar">
+    <div class="presskit-icon-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/>
+      </svg>
+    </div>
+    <div class="presskit-text">
+      <div class="presskit-title">Want to feature our story?</div>
+      <div class="presskit-sub">We love sharing how we make a difference.</div>
+    </div>
+    <a href="#" class="presskit-btn" id="presskit-view-btn">View Press Kit &nbsp;→</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <div class="footer-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="footer-logo-text">Prime Legal <span>Resolution</span></div>
+            <div class="footer-logo-india">Service</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Legal support. Financial freedom.<br/>Your rights. Our mission.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Company -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press &amp; Media</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Support -->
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact Support</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Subscribe to our newsletter for tips and updates.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="Enter your email" id="newsletter-email-input"/>
+          <button class="newsletter-btn" id="newsletter-submit-btn" aria-label="Subscribe">
+            <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <span>© 2024 Prime Legal Resolution Service. All rights reserved.</span>
+      <span>Made with <span class="heart">♥</span> in India</span>
+    </div>
+  </footer>
+
+  <!-- MOBILE APP HEADER -->
+  <header class="mob-header">
+    <div class="mob-header-left">
+      <div class="mob-logo-box">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z" stroke="#D4A017" stroke-width="1.8"/>
+          <polyline points="8,11.5 11,14 16.5,8" stroke="#D4A017" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="mob-logo-info">
+        <span class="mob-logo-name">Prime Legal<br><em>Resolution</em></span>
+        <span class="mob-logo-sub">Prime Legal Resolution Service</span>
+      </div>
+    </div>
+    <div class="mob-header-right">
+      <a href="tel:+918920123456" class="mob-icon-btn" aria-label="Call us">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+      <button class="mob-icon-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE BOTTOM TAB BAR (4 tabs like reference) -->
+  <nav class="mobile-bottom-nav">
+    <a href="#hero-section" class="mob-tab active">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="#services-section" class="mob-tab">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Services
+    </a>
+    <a href="#process-section" class="mob-tab">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5.5V11C4 15.5 7.5 19.7 12 21C16.5 19.7 20 15.5 20 11V5.5L12 2Z"/></svg>
+      Process
+    </a>
+    <a href="tel:+918920123456" class="mob-tab">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.19 2 2 0 012.49 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Contact
+    </a>
+  </nav>
+
+<script>
+(function () {
+  /* ── Only run on mobile ── */
+  if (window.innerWidth > 768) return;
+
+  /* ── 1. ACTIVE TAB on scroll ── */
+  const sections = [
+    { id: 'hero-section',         tabHref: '#hero-section'      },
+    { id: 'process-section',      tabHref: '#process-section'   },
+    { id: 'works-section',        tabHref: '#services-section'  },
+    { id: 'services-section',     tabHref: '#services-section'  },
+    { id: 'about-section',        tabHref: '#about-section'     },
+    { id: 'media-section',        tabHref: '#about-section'     },
+    { id: 'testimonials-section', tabHref: '#about-section'     },
+  ];
+  const tabs = document.querySelectorAll('.mob-tab');
+
+  function setActive(href) {
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === href);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const match = sections.find(s => s.id === e.target.id);
+        if (match) setActive(match.tabHref);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) observer.observe(el);
+  });
+
+  /* ── 2. TAP RIPPLE on tabs ── */
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function (e) {
+      const ripple = document.createElement('span');
+      ripple.style.cssText = `
+        position:absolute; border-radius:50%; transform:scale(0);
+        background:rgba(212,160,23,0.25); animation:ripple 0.45s linear;
+        width:40px; height:40px; top:50%; left:50%;
+        margin:-20px 0 0 -20px; pointer-events:none;
+      `;
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 500);
+    });
+  });
+
+  /* ── 3. SECTION ENTRANCE ANIMATIONS ── */
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple { to { transform:scale(2.5); opacity:0; } }
+    @media (max-width:768px) {
+      .mob-reveal { opacity:0; transform:translateY(28px); transition:opacity 0.5s ease, transform 0.5s ease; }
+      .mob-reveal.mob-visible { opacity:1; transform:translateY(0); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const revealEls = document.querySelectorAll(
+    '.works-card, .svc-card, .testi-card, .about-stat, .process-step, .media-card'
+  );
+  revealEls.forEach(el => el.classList.add('mob-reveal'));
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('mob-visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* ── 4. HEADER shadow on scroll ── */
+  const mobHeader = document.querySelector('.mob-header');
+  window.addEventListener('scroll', () => {
+    if (mobHeader) {
+      mobHeader.style.boxShadow = window.scrollY > 10
+        ? '0 2px 20px rgba(0,0,0,0.7)'
+        : 'none';
+    }
+  }, { passive: true });
+
+})();
+</script>
+
+</body>
+</html>
