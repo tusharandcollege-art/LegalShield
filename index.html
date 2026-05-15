@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -1882,6 +1882,23 @@
       .cta-bar { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
       .cta-bar-btn { width: 100%; justify-content: center; padding: 15px; border-radius: 12px; }
       .presskit-bar { flex-direction: column; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
+
+      /* ── WORKS CTA BAR (Need Immediate Protection?) ── */
+      .works-cta-bar {
+        flex-direction: column; align-items: flex-start;
+        padding: 22px 20px; gap: 16px; margin: 0 0 8px;
+        border-radius: 16px;
+      }
+      .cta-deco-left, .cta-deco-right { display: none; }
+      .cta-text-group { flex: unset; width: 100%; }
+      .cta-bar-title { font-size: 18px; }
+      .cta-bar-sub { font-size: 13px; }
+      .works-cta-bar .cta-bar-btn {
+        width: 100%; justify-content: center; text-align: center;
+        padding: 14px 20px; border-radius: 12px;
+        background: rgba(212,160,23,0.1); border: 1.5px solid var(--gold);
+        color: var(--gold); font-size: 14px; font-weight: 700;
+      }
 
       /* ── FOOTER ── */
       .site-footer { padding: 40px 20px 20px; margin-top: 0; }
