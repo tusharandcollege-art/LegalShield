@@ -1917,7 +1917,7 @@
       /* ── ABOUT ── */
       .about-section { display: flex; flex-direction: column; }
       .about-headline { font-size: 24px; font-weight: 800; }
-      .about-right { order: -1; min-height: 260px; border-radius: 16px; margin-bottom: 24px; }
+      .about-right { display: none; } /* hide missing image — no blank space */
       .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
       .about-stat { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 14px; overflow: visible; }
       .about-stat-number { font-size: 26px !important; white-space: nowrap; overflow: visible; }
@@ -1928,6 +1928,7 @@
       .media-section { flex-direction: column; align-items: flex-start; }
       .media-headline { font-size: 24px; font-weight: 800; }
       .media-left { max-width: 100%; margin-bottom: 28px; }
+      .media-right-wrap { display: none; } /* hide orbital animation — no blank space */
       .media-right { width: 100%; }
       .media-stats-bar { flex-direction: row; flex-wrap: wrap; gap: 0; border-left: none; padding-left: 0; }
       .media-stat { flex: 0 0 50%; padding: 18px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
