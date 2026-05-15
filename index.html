@@ -1927,8 +1927,25 @@
       /* ── MEDIA ── */
       .media-section { flex-direction: column; align-items: flex-start; }
       .media-headline { font-size: 24px; font-weight: 800; }
-      .media-left { max-width: 100%; margin-bottom: 28px; }
-      .media-right-wrap { display: none; } /* hide orbital animation — no blank space */
+      .media-left { max-width: 100%; margin-bottom: 20px; }
+      /* Restore media-right-wrap but make it responsive */
+      .media-right-wrap {
+        display: block; width: 100% !important; height: auto !important;
+        position: relative; min-height: unset;
+      }
+      /* Hide decorative elements that cause blank space */
+      .media-india-map, .media-orbits, .media-glow { display: none !important; }
+      /* Make cards grid full-width responsive 2x2 */
+      .media-cards-grid {
+        position: relative !important; width: 100% !important;
+        display: grid !important; grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important; z-index: 5;
+      }
+      /* Make individual cards auto-width */
+      .media-card {
+        width: 100% !important; height: 110px !important;
+        border-radius: 12px;
+      }
       .media-right { width: 100%; }
       .media-stats-bar { flex-direction: row; flex-wrap: wrap; gap: 0; border-left: none; padding-left: 0; }
       .media-stat { flex: 0 0 50%; padding: 18px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
