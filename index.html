@@ -780,61 +780,71 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 28px;
-      padding: 28px 36px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      background: #111111;
+      gap: 32px;
+      padding: 36px 48px;
+      border: 1px solid rgba(212,160,23,0.22);
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1a1400 0%, #111107 50%, #0f0d00 100%);
       position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(212,160,23,0.06), 0 20px 60px rgba(0,0,0,0.4);
+    }
+    /* Subtle background glow */
+    .works-cta-bar::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     /* Decorative gold lines left & right of phone icon */
     .cta-deco-left, .cta-deco-right {
       flex: 1;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212,160,23,0.5));
+      background: linear-gradient(to right, transparent, rgba(212,160,23,0.4));
     }
-
     .cta-deco-right {
-      background: linear-gradient(to left, transparent, rgba(212,160,23,0.5));
+      background: linear-gradient(to left, transparent, rgba(212,160,23,0.4));
     }
 
     .cta-phone-circle {
-      width: 58px;
-      height: 58px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      background: rgba(212,160,23,0.1);
+      border: 1.5px solid rgba(212,160,23,0.6);
+      background: rgba(212,160,23,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(212,160,23,0.15);
     }
-
     .cta-phone-circle svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--gold);
-      fill: none;
+      width: 28px; height: 28px;
+      stroke: var(--gold); fill: none;
     }
 
     .cta-text-group {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
       flex: 2;
     }
 
     .cta-bar-title {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--text-white);
       line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .cta-bar-sub {
-      font-size: 13.5px;
-      color: #888;
+      font-size: 14px;
+      color: #999;
       font-weight: 400;
     }
 
@@ -842,24 +852,24 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: transparent;
-      color: var(--gold);
-      font-size: 14px;
-      font-weight: 700;
-      padding: 12px 26px;
-      border-radius: 8px;
-      border: 1.5px solid var(--gold);
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .cta-bar-btn:hover {
       background: var(--gold);
       color: #0A0A0A;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 12px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(212,160,23,0.3);
+    }
+    .cta-bar-btn:hover {
+      background: #e8b41a;
       transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,160,23,0.45);
     }
 
     /* ── SECTION 4: OUR SERVICES ── */
@@ -2012,7 +2022,24 @@
 
       /* ── CTA BARS ── */
       .cta-bar { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
-      .cta-bar-btn { width: 100%; justify-content: center; padding: 15px; border-radius: 12px; }
+      /* ── WORKS CTA BAR ── */
+      .works-cta-bar {
+        flex-direction: column; align-items: flex-start;
+        padding: 24px 20px; gap: 16px;
+        border-radius: 18px; margin: 0 0 8px;
+      }
+      .works-cta-bar::before { display: none; }
+      .cta-deco-left, .cta-deco-right { display: none; }
+      .cta-phone-circle { width: 52px; height: 52px; }
+      .cta-phone-circle svg { width: 22px; height: 22px; }
+      .cta-text-group { width: 100%; }
+      .cta-bar-title { font-size: 18px; font-weight: 800; }
+      .cta-bar-sub { font-size: 13px; color: #999; }
+      .cta-bar-btn {
+        width: 100%; justify-content: center;
+        padding: 16px; border-radius: 12px;
+        font-size: 15px; font-weight: 800;
+      }
       .presskit-bar { flex-direction: column; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
 
       /* ── WORKS CTA BAR (Need Immediate Protection?) ── */
