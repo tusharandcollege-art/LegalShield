@@ -1918,7 +1918,35 @@
       /* ── ABOUT ── */
       .about-section { display: flex; flex-direction: column; }
       .about-headline { font-size: 24px; font-weight: 800; }
-      .about-right { display: none; } /* hide missing image — no blank space */
+      .about-right {
+        display: block;                          /* restore the image */
+        position: relative;
+        width: 100%;
+        height: 240px;
+        border-radius: 18px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        border: 1.5px solid rgba(212,160,23,0.35);
+        box-shadow: 0 0 0 4px rgba(212,160,23,0.07), 0 16px 40px rgba(0,0,0,0.5);
+      }
+      .about-right img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      /* Gold gradient overlay at bottom for depth */
+      .about-right::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(10,8,0,0.55) 75%,
+          rgba(10,8,0,0.85) 100%
+        );
+        pointer-events: none;
+      }
       .about-stats {
         display: grid; grid-template-columns: repeat(3, 1fr);
         gap: 0; margin-top: 20px;
