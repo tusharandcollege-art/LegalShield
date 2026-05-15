@@ -1787,27 +1787,69 @@
 
       /* ── HERO ── */
       .hero-wrapper { min-height: auto; }
-      .hero { position: relative; display: block; min-height: 88vw; overflow: hidden; }
-      .hero-image-side { position: absolute; inset: 0; width: 100%; height: 100%; }
-      .hero-image-side img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+      .hero {
+        position: relative; display: block;
+        min-height: 105vw; overflow: hidden;
+        background: #0a0a0a;
+      }
+      /* Image only covers RIGHT 60% of hero */
+      .hero-image-side {
+        position: absolute; top: 0; right: 0;
+        width: 62%; height: 100%;
+      }
+      .hero-image-side img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center top; display: block;
+      }
+      /* Gradient: left dark → right fades to image */
       .hero-image-side::before {
         content: ''; position: absolute; inset: 0; z-index: 1;
-        background: linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.65) 45%, rgba(10,10,10,0.92) 75%, #0a0a0a 100%),
-                    linear-gradient(to right, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0.05) 100%);
+        background: linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.85) 30%, rgba(10,10,10,0.2) 75%, rgba(10,10,10,0) 100%);
       }
+      /* Content on left, vertically centered */
       .hero-content {
-        position: relative; z-index: 2; padding: 24px 20px 36px;
-        display: flex; flex-direction: column; align-items: flex-start; text-align: left;
-        min-height: 88vw; justify-content: flex-end;
+        position: relative; z-index: 2;
+        padding: 36px 20px 40px;
+        width: 65%;
+        display: flex; flex-direction: column;
+        align-items: flex-start; text-align: left;
+        min-height: 105vw; justify-content: center;
       }
-      .badge { margin-bottom: 10px; font-size: 9px; padding: 4px 10px; letter-spacing: 0.03em; background: rgba(212,160,23,0.1); border-color: rgba(212,160,23,0.3); color: #D4A017; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .badge svg { width: 11px; height: 11px; flex-shrink: 0; }
-      .hero-headline { font-size: clamp(26px,7.5vw,34px); line-height: 1.15; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.02em; text-shadow: 0 2px 24px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.8); }
-      .hero-divider { width: 36px; height: 3px; margin: 8px 0 14px; }
-      .hero-desc { font-size: 13px; line-height: 1.65; margin-bottom: 22px; color: rgba(255,255,255,0.75); max-width: 88%; text-shadow: 0 1px 12px rgba(0,0,0,0.9); }
-      .hero-buttons { flex-direction: column; gap: 10px; width: 100%; max-width: 290px; }
-      .btn-primary { width: 100%; justify-content: center; padding: 15px 20px; font-size: 14px; font-weight: 700; border-radius: 12px; }
-      .btn-secondary { width: 100%; justify-content: center; padding: 13px 20px; font-size: 13.5px; border-radius: 12px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); }
+      /* Badge: compact single line pill */
+      .badge {
+        margin-bottom: 20px; font-size: 9.5px; padding: 5px 12px;
+        letter-spacing: 0.02em;
+        background: rgba(10,10,10,0.7); border: 1px solid rgba(212,160,23,0.4);
+        color: #e0c97f; border-radius: 50px;
+        white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+      }
+      .badge svg { width: 11px; height: 11px; flex-shrink: 0; stroke: #D4A017; }
+      /* Headline */
+      .hero-headline {
+        font-size: clamp(27px, 7vw, 34px); line-height: 1.12;
+        margin-bottom: 8px; font-weight: 800; letter-spacing: -0.02em;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+      }
+      .hero-divider { width: 36px; height: 3px; margin: 10px 0 16px; }
+      /* Description */
+      .hero-desc {
+        font-size: 12.5px; line-height: 1.7; margin-bottom: 26px;
+        color: rgba(255,255,255,0.72); max-width: 100%;
+        text-shadow: 0 1px 10px rgba(0,0,0,0.85);
+      }
+      /* Buttons: stacked, auto-width (not stretched) */
+      .hero-buttons { flex-direction: column; gap: 10px; width: auto; align-items: flex-start; }
+      .btn-primary {
+        width: auto; justify-content: center;
+        padding: 14px 20px; font-size: 13px; font-weight: 700; border-radius: 12px;
+        white-space: nowrap;
+      }
+      .btn-secondary {
+        width: auto; justify-content: flex-start; gap: 8px;
+        padding: 12px 18px; font-size: 13px; border-radius: 12px;
+        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+        white-space: nowrap;
+      }
 
       /* ── TRUST STRIP ── */
       .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); background: #111; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
