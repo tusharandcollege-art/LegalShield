@@ -800,15 +800,8 @@
       pointer-events: none;
     }
 
-    /* Decorative gold lines left & right of phone icon */
-    .cta-deco-left, .cta-deco-right {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212,160,23,0.4));
-    }
-    .cta-deco-right {
-      background: linear-gradient(to left, transparent, rgba(212,160,23,0.4));
-    }
+    /* Decorative gold lines — hidden, keeping selectors for mobile compat */
+    .cta-deco-left, .cta-deco-right { display: none; }
 
     .cta-phone-circle {
       width: 68px;
