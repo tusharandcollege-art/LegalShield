@@ -3026,6 +3026,39 @@
     }
   }, { passive: true });
 
+  /* ── 5. AUTO-SCROLL HORIZONTAL GRIDS ── */
+  const scrollGrids = document.querySelectorAll('.services-grid, .works-grid, .testi-grid, .media-grid, .stats-bar');
+  scrollGrids.forEach(grid => {
+    // Only apply if it actually overflows horizontally
+    let scrollSpeed = 0.6; 
+    let currentScroll = 0;
+    let isUserInteracting = false;
+
+    function autoScroll() {
+      if (!isUserInteracting && window.innerWidth <= 768 && grid.scrollWidth > grid.clientWidth) {
+        currentScroll += scrollSpeed;
+        grid.scrollLeft = currentScroll;
+
+        // If reached the very end, reset instantly
+        if (grid.scrollLeft >= (grid.scrollWidth - grid.clientWidth - 1)) {
+          currentScroll = 0;
+          grid.scrollLeft = 0;
+        }
+      } else {
+        // Sync the internal tracker with where the user scrolled manually
+        currentScroll = grid.scrollLeft;
+      }
+      requestAnimationFrame(autoScroll);
+    }
+
+    grid.addEventListener('touchstart', () => isUserInteracting = true, {passive: true});
+    grid.addEventListener('touchend', () => setTimeout(() => isUserInteracting = false, 1500), {passive: true});
+    grid.addEventListener('mousedown', () => isUserInteracting = true, {passive: true});
+    grid.addEventListener('mouseup', () => setTimeout(() => isUserInteracting = false, 1500), {passive: true});
+
+    requestAnimationFrame(autoScroll);
+  });
+
 })();
 </script>
 
