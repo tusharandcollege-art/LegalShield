@@ -1946,9 +1946,26 @@
         width: 100% !important; height: 110px !important;
         border-radius: 12px;
       }
-      .media-right { width: 100%; }
-      .media-stats-bar { flex-direction: row; flex-wrap: wrap; gap: 0; border-left: none; padding-left: 0; }
-      .media-stat { flex: 0 0 50%; padding: 18px 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      /* ── MEDIA STATS BAR ── */
+      .media-stats-bar {
+        margin: 16px 0 0; padding: 16px 12px;
+        border-radius: 14px; gap: 0;
+        display: flex; flex-direction: row;
+        align-items: center; justify-content: space-around;
+        flex-wrap: nowrap;
+      }
+      .media-stat-item {
+        display: flex; flex-direction: column; align-items: center;
+        gap: 6px; flex: 1; justify-content: center; text-align: center;
+        padding: 8px 4px;
+      }
+      .media-stat-item + .media-stat-item {
+        border-left: 1px solid rgba(255,255,255,0.08);
+        border-top: none;
+      }
+      .media-stat-icon-wrap svg { width: 20px; height: 20px; }
+      .media-stat-value { font-size: 18px !important; font-weight: 800; }
+      .media-stat-lbl { font-size: 10px !important; color: #7a8098; margin-top: 2px; }
 
       /* ── CTA BARS ── */
       .cta-bar { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; border-radius: 16px; gap: 14px; }
