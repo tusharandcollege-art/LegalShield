@@ -3026,47 +3026,27 @@
     }
   }, { passive: true });
 
-  /* ── 5. TRUE INFINITE AUTO-SCROLL HORIZONTAL GRIDS ── */
-  const scrollGrids = document.querySelectorAll('.services-grid, .works-grid, .testi-grid');
-  
+  /* ── 5. AUTO-SCROLL HORIZONTAL GRIDS ── */
+  const scrollGrids = document.querySelectorAll('.services-grid, .works-grid, .testi-grid, .media-grid, .stats-bar');
   scrollGrids.forEach(grid => {
-    // Only apply on mobile devices
-    if (window.innerWidth > 768) return;
-
-    // 1. Clone original children to create the infinite illusion
-    const originalChildren = Array.from(grid.children);
-    originalChildren.forEach(child => {
-      const clone = child.cloneNode(true);
-      grid.appendChild(clone);
-    });
-
+    // Only apply if it actually overflows horizontally
     let scrollSpeed = 0.6; 
     let currentScroll = 0;
     let isUserInteracting = false;
 
     function autoScroll() {
-      // Find the exact pixel where the cloned set begins
-      const firstClone = grid.children[originalChildren.length];
-      const midpoint = firstClone.offsetLeft - grid.children[0].offsetLeft;
-
-      if (!isUserInteracting) {
+      if (!isUserInteracting && window.innerWidth <= 768 && grid.scrollWidth > grid.clientWidth) {
         currentScroll += scrollSpeed;
         grid.scrollLeft = currentScroll;
 
-        // If we seamlessly scrolled to the start of the cloned set, instantly jump back to real start
-        if (grid.scrollLeft >= midpoint) {
-          currentScroll = grid.scrollLeft - midpoint;
-          grid.scrollLeft = currentScroll;
+        // If reached the very end, reset instantly
+        if (grid.scrollLeft >= (grid.scrollWidth - grid.clientWidth - 1)) {
+          currentScroll = 0;
+          grid.scrollLeft = 0;
         }
       } else {
-        // Sync tracker when user swipes
+        // Sync the internal tracker with where the user scrolled manually
         currentScroll = grid.scrollLeft;
-
-        // If user swipes backwards past the beginning, seamlessly jump to the cloned middle
-        if (currentScroll <= 0) {
-          currentScroll = midpoint;
-          grid.scrollLeft = currentScroll;
-        }
       }
       requestAnimationFrame(autoScroll);
     }
@@ -3076,7 +3056,6 @@
     grid.addEventListener('mousedown', () => isUserInteracting = true, {passive: true});
     grid.addEventListener('mouseup', () => setTimeout(() => isUserInteracting = false, 1500), {passive: true});
 
-    // Start loop
     requestAnimationFrame(autoScroll);
   });
 
