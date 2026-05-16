@@ -477,7 +477,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 100px 64px;
+      padding: 60px 64px;
     }
 
     .process-badge {
@@ -589,7 +589,7 @@
     /* ── SECTION 3: HOW OUR SERVICE WORKS ── */
     .works-section {
       background-color: #0A0A0A;
-      padding: 100px 64px;
+      padding: 60px 64px;
     }
 
     /* Top label */
@@ -869,7 +869,7 @@
     /* ── SECTION 4: OUR SERVICES ── */
     .services-section {
       background-color: #090B18;
-      padding: 100px 64px;
+      padding: 60px 64px;
     }
 
     /* Top badge */
@@ -1109,7 +1109,7 @@
     /* ── SECTION 5: ABOUT US ── */
     .about-section {
       background-color: #0A0A0A;
-      padding: 100px 64px;
+      padding: 60px 64px;
       display: grid;
       grid-template-columns: 50% 1fr;
       gap: 60px;
@@ -1276,7 +1276,7 @@
     /* ── SECTION 6: MEDIA PRESENCE (EXACT MATCH) ── */
     .media-section {
       background: #070a14;
-      padding: 100px 64px;
+      padding: 60px 64px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1592,7 +1592,7 @@
     .media-stat-lbl { font-size: 13px; color: #7a8098; margin-top: 4px; }
 
     /* ── TESTIMONIALS ── */
-    .testimonials-section { background: #080A14; padding: 100px 64px; }
+    .testimonials-section { background: #080A14; padding: 60px 64px; }
     .testi-top-badge {
       display: flex; justify-content: center; margin-bottom: 20px;
     }
@@ -1787,13 +1787,13 @@
 
       /* ── SECTIONS ── */
       .process-section, .works-section, .media-section, .testimonials-section {
-        padding: 44px 20px 36px; overflow: hidden;
+        padding: 32px 20px 24px; overflow: hidden;
       }
       .services-section {
-        padding: 44px 20px 16px; overflow: hidden;
+        padding: 32px 20px 12px; overflow: hidden;
       }
       .about-section {
-        padding: 24px 20px 36px; overflow: hidden;
+        padding: 16px 20px 24px; overflow: hidden;
       }
 
       /* ── HERO ── */
@@ -2097,6 +2097,42 @@
     }
 
 
+    /* ── MODAL CSS ── */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);
+      z-index: 100000; display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: #0F1221; border: 1px solid rgba(212,160,23,0.3);
+      border-radius: 16px; padding: 30px; width: 100%; max-width: 500px;
+      max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+    .modal-close {
+      position: absolute; top: 15px; right: 20px; background: none; border: none;
+      color: #fff; font-size: 28px; cursor: pointer; line-height: 1; transition: 0.2s;
+    }
+    .modal-close:hover { color: #D4A017; }
+    .modal-content h2 { margin-top: 0; color: #D4A017; font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .modal-content p { color: #A0A5B5; font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+    .form-group { margin-bottom: 16px; text-align: left; }
+    .form-group label { display: block; font-size: 13px; color: #D1D5DB; margin-bottom: 6px; font-weight: 500; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 12px; border-radius: 8px; background: #1A1D2D;
+      border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: inherit; font-size: 14px;
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none; border-color: #D4A017; background: #22263A;
+    }
+    .submit-btn {
+      width: 100%; padding: 14px; background: #D4A017; color: #000; border: none;
+      border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer;
+      margin-top: 10px; font-family: inherit; transition: background 0.3s ease;
+    }
+    .submit-btn:hover { background: #E8B41A; }
   </style>
 </head>
 <body>
@@ -2135,7 +2171,7 @@
         +91 8920 123 456
       </div>
       <a href="#" class="btn-cta" id="nav-cta-btn">
-        Get Free Expert Consultation &nbsp;→
+        Get Expert Consultation &nbsp;→
       </a>
     </div>
   </nav>
@@ -2179,7 +2215,7 @@
 
         <div class="hero-buttons">
           <a href="#" class="btn-primary" id="hero-cta-btn">
-            Get Free Expert Consultation
+            Get Expert Consultation
             <span class="arrow">→</span>
           </a>
           <a href="#" class="btn-secondary" id="hero-how-it-works-btn">
@@ -2979,7 +3015,7 @@
         <h4>Legal</h4>
         <ul>
           <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
           <li><a href="#">Refund Policy</a></li>
         </ul>
       </div>
@@ -3170,6 +3206,69 @@
   });
 
 })();
+</script>
+
+<!-- Application Form Modal -->
+<div id="apply-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close-btn">&times;</button>
+    <h2>Application Form</h2>
+    <p>Please fill out the details below for your consultation.</p>
+    <form id="apply-form">
+      <div class="form-group"><label>1. Full Name</label><input type="text" required></div>
+      <div class="form-group"><label>2. Phone Number</label><input type="tel" required></div>
+      <div class="form-group"><label>3. Email Address</label><input type="email" required></div>
+      <div class="form-group"><label>4. Total Unsecured Debt Amount (₹)</label><input type="number" required></div>
+      <div class="form-group"><label>5. Number of Active Loans/Cards</label><input type="number" required></div>
+      <div class="form-group">
+        <label>6. Are you currently behind on payments?</label>
+        <select required><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select>
+      </div>
+      <div class="form-group">
+        <label>7. Current Employment Status</label>
+        <select required><option value="">Select...</option><option value="salaried">Salaried</option><option value="self_employed">Self-Employed</option><option value="unemployed">Unemployed</option></select>
+      </div>
+      <div class="form-group"><label>8. Monthly Income (₹)</label><input type="number" required></div>
+      <div class="form-group"><label>9. State/City of Residence</label><input type="text" required></div>
+      <div class="form-group"><label>10. Preferred Time to Call</label><input type="text" placeholder="e.g. 10 AM - 12 PM" required></div>
+      <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('apply-modal');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const ctaButtons = document.querySelectorAll('.btn-cta, .btn-primary, .cta-bar-btn, .services-apply-btn');
+
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+
+  const form = document.getElementById('apply-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Application submitted successfully!');
+      modal.classList.remove('active');
+      form.reset();
+    });
+  }
+});
 </script>
 
 </body>
