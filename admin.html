@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Prime Legal Resolution Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0F1221;
+      --card-bg: #1A1D2E;
+      --gold: #D4A017;
+      --gold-hover: #EBC350;
+      --text-main: #FFFFFF;
+      --text-muted: #A0A5B5;
+      --border: #2D314A;
+      --success: #2ECA7F;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Login Screen */
+    #login-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .login-box {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .login-box h2 {
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .form-group input:focus {
+      border-color: var(--gold);
+    }
+    
+    .btn-gold {
+      width: 100%;
+      padding: 14px;
+      background: var(--gold);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 16px;
+    }
+    
+    .btn-gold:hover {
+      background: var(--gold-hover);
+    }
+    
+    .error-msg {
+      color: #ff4d4d;
+      margin-top: 12px;
+      font-size: 14px;
+      display: none;
+    }
+
+    /* Dashboard Layout */
+    #dashboard {
+      display: none;
+      min-height: 100vh;
+    }
+    
+    .sidebar {
+      width: 250px;
+      background: var(--card-bg);
+      border-right: 1px solid var(--border);
+      position: fixed;
+      height: 100vh;
+      padding: 24px 0;
+    }
+    
+    .brand {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      padding: 0 24px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .nav-item {
+      padding: 16px 24px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    
+    .nav-item:hover, .nav-item.active {
+      background: rgba(212, 160, 23, 0.1);
+      color: var(--gold);
+      border-right: 3px solid var(--gold);
+    }
+    
+    .main-content {
+      margin-left: 250px;
+      padding: 32px 40px;
+      width: calc(100% - 250px);
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    
+    .header-title {
+      font-size: 28px;
+      font-weight: 600;
+    }
+    
+    .logout-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .logout-btn:hover {
+      color: var(--text-main);
+      border-color: var(--text-muted);
+    }
+    
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    
+    .stat-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    
+    .stat-title {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    
+    /* Table Area */
+    .section-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      display: none;
+    }
+    
+    .section-box.active {
+      display: block;
+    }
+    
+    .box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .box-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    td {
+      font-size: 15px;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .status-badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(46, 202, 127, 0.1);
+      color: var(--success);
+      display: inline-block;
+    }
+    
+    .status-pending {
+      background: rgba(212, 160, 23, 0.1);
+      color: var(--gold);
+    }
+    
+    .action-btn {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    
+    .action-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    
+    /* Settings Area */
+    .settings-group {
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    
+    .settings-group h3 {
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div id="login-screen">
+    <div class="login-box">
+      <h2>Admin Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="username" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-gold">Sign In</button>
+        <div class="error-msg" id="login-error">Invalid username or password.</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div id="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Admin Panel
+      </div>
+      
+      <div class="nav-item active" onclick="switchTab('leads')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Leads & Applications
+      </div>
+      
+      <div class="nav-item" onclick="switchTab('payments')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        Payments
+      </div>
+      
+      <div class="nav-item" onclick="switchTab('settings')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Settings
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <div class="header-title" id="page-title">Leads & Applications</div>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+      </div>
+      
+      <!-- Top Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-title">Total Applications (This Month)</div>
+          <div class="stat-value">124</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Pending Consultations</div>
+          <div class="stat-value">18</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Payments Received (â‚¹)</div>
+          <div class="stat-value">84,500</div>
+        </div>
+      </div>
+      
+      <!-- Leads Section -->
+      <div id="leads-section" class="section-box active">
+        <div class="box-header">
+          <div class="box-title">Recent Applications</div>
+          <button class="btn-gold" style="width: auto; padding: 8px 16px;">Export CSV</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Debt Amount (â‚¹)</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oct 24, 2026</td>
+              <td>Rahul Sharma</td>
+              <td>+91 98765 43210</td>
+              <td>12,50,000</td>
+              <td><span class="status-badge status-pending">Pending Call</span></td>
+              <td><button class="action-btn">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Oct 23, 2026</td>
+              <td>Priya Patel</td>
+              <td>+91 87654 32109</td>
+              <td>5,00,000</td>
+              <td><span class="status-badge">Consulted</span></td>
+              <td><button class="action-btn">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Oct 23, 2026</td>
+              <td>Amit Kumar</td>
+              <td>+91 76543 21098</td>
+              <td>28,00,000</td>
+              <td><span class="status-badge status-pending">Pending Call</span></td>
+              <td><button class="action-btn">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Payments Section -->
+      <div id="payments-section" class="section-box">
+        <div class="box-header">
+          <div class="box-title">Payment History</div>
+          <button class="btn-gold" style="width: auto; padding: 8px 16px;" onclick="alert('In a real app, this would open a Razorpay/Stripe integration modal to generate a payment link.')">Generate Payment Link</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Client Name</th>
+              <th>Service Rendered</th>
+              <th>Amount (â‚¹)</th>
+              <th>Status</th>
+              <th>Invoice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oct 22, 2026</td>
+              <td>Sneha Gupta</td>
+              <td>Initial Consultation Fee</td>
+              <td>2,500</td>
+              <td><span class="status-badge">Completed</span></td>
+              <td><a href="#" style="color:var(--gold); text-decoration:none;">Download</a></td>
+            </tr>
+            <tr>
+              <td>Oct 20, 2026</td>
+              <td>Vikram Singh</td>
+              <td>Harassment Protection Retainer</td>
+              <td>15,000</td>
+              <td><span class="status-badge">Completed</span></td>
+              <td><a href="#" style="color:var(--gold); text-decoration:none;">Download</a></td>
+            </tr>
+            <tr>
+              <td>Oct 18, 2026</td>
+              <td>Neha Desai</td>
+              <td>Settlement Negotiation Fee (Part 1)</td>
+              <td>25,000</td>
+              <td><span class="status-badge status-pending">Processing</span></td>
+              <td><a href="#" style="color:var(--gold); text-decoration:none;">Download</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Settings Section -->
+      <div id="settings-section" class="section-box">
+        <div class="box-header">
+          <div class="box-title">Admin Settings</div>
+        </div>
+        
+        <div class="settings-group">
+          <h3>Payment Gateway Integration</h3>
+          <p style="color:var(--text-muted); margin-bottom: 16px; font-size:14px;">Connect your payment gateway (Razorpay/Stripe/Instamojo) to receive payments directly.</p>
+          <div class="form-group">
+            <label>Provider</label>
+            <select style="width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text-main); outline: none;">
+              <option>Razorpay</option>
+              <option>Stripe</option>
+              <option>Instamojo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>API Key (Live)</label>
+            <input type="password" value="rzp_live_xxxxxxxxxxxx">
+          </div>
+          <div class="form-group">
+            <label>API Secret (Live)</label>
+            <input type="password" value="xxxxxxxxxxxxxxxxxxxxxx">
+          </div>
+          <button class="btn-gold" style="width:auto; padding: 10px 20px;">Save Payment Keys</button>
+        </div>
+        
+        <hr style="border:0; border-top:1px solid var(--border); margin: 32px 0;">
+        
+        <div class="settings-group">
+          <h3>Change Admin Password</h3>
+          <div class="form-group">
+            <label>Current Password</label>
+            <input type="password">
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input type="password">
+          </div>
+          <button class="btn-gold" style="width:auto; padding: 10px 20px;">Update Password</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    // --- Basic Authentication Logic ---
+    // Note: In a real production app, this MUST be handled by a secure backend (Node.js/PHP/Python)
+    // This frontend implementation is for demonstration purposes.
+    
+    const loginForm = document.getElementById('login-form');
+    const loginScreen = document.getElementById('login-screen');
+    const dashboard = document.getElementById('dashboard');
+    const errorMsg = document.getElementById('login-error');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    // Check if already logged in via localStorage
+    if (localStorage.getItem('admin_logged_in') === 'true') {
+      loginScreen.style.display = 'none';
+      dashboard.style.display = 'block';
+    }
+    
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      
+      // HARDCODED CREDENTIALS (for demonstration)
+      if (user === 'admin' && pass === 'Admin@123!') {
+        localStorage.setItem('admin_logged_in', 'true');
+        loginScreen.style.display = 'none';
+        dashboard.style.display = 'block';
+        errorMsg.style.display = 'none';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+    
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('admin_logged_in');
+      dashboard.style.display = 'none';
+      loginScreen.style.display = 'flex';
+      document.getElementById('password').value = '';
+    });
+    
+    // --- Navigation Logic ---
+    function switchTab(tabId) {
+      // Update nav items
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+      
+      // Update section visibility
+      document.querySelectorAll('.section-box').forEach(box => {
+        box.classList.remove('active');
+      });
+      document.getElementById(tabId + '-section').classList.add('active');
+      
+      // Update Title
+      const titles = {
+        'leads': 'Leads & Applications',
+        'payments': 'Payments',
+        'settings': 'Settings'
+      };
+      document.getElementById('page-title').innerText = titles[tabId];
+    }
+  </script>
+</body>
+</html>
