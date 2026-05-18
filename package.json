@@ -1,0 +1,8 @@
+{
+  "name": "prime-legal-resolution",
+  "version": "1.0.0",
+  "description": "Static site with Vercel serverless API",
+  "dependencies": {
+    "@google/generative-ai": "^0.11.1"
+  }
+}

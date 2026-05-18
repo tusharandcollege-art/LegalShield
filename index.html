@@ -3595,8 +3595,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
       try {
-        // Connect to the custom backend
-        const response = await fetch('http://localhost:3000/api/chat', {
+        // Connect to the Vercel serverless function
+        const response = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: message, history: chatHistory })
