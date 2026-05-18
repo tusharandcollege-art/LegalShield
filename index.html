@@ -3601,9 +3601,18 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: message, history: chatHistory })
         });
-        
-        const data = await response.json();
-        
+
+        let data;
+        const rawText = await response.text();
+        try {
+          data = JSON.parse(rawText);
+        } catch (e) {
+          chatMessages.removeChild(typingDiv);
+          console.error('Non-JSON response from server:', rawText);
+          addMessage('Server error: ' + rawText.substring(0, 120), 'bot');
+          return;
+        }
+
         // Remove typing indicator
         chatMessages.removeChild(typingDiv);
 
@@ -3612,12 +3621,15 @@ document.addEventListener('DOMContentLoaded', () => {
           // Update history
           chatHistory.push({ role: 'user', text: message });
           chatHistory.push({ role: 'model', text: data.reply });
+        } else if (data.error) {
+          addMessage('AI Error: ' + data.error, 'bot');
         } else {
-          addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+          addMessage('Sorry, I encountered an unknown error. Please try again.', 'bot');
         }
       } catch (error) {
         chatMessages.removeChild(typingDiv);
-        addMessage('Error connecting to the server. Is the backend running?', 'bot');
+        console.error('Chatbot fetch error:', error);
+        addMessage('Network error: ' + error.message, 'bot');
       }
     });
   }
